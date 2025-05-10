@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw
-from translate import lookupTableCharacters1, lookupTableCharacters2, lookupTableInstructions
+from translate import lookupTableCharacters1, lookupTableCharacters2, lookupTableInstructions, lookupTableOperators1
 
 def rect(image, x, y, sx, sy, c):
     for i in range(sx):
@@ -45,6 +45,9 @@ def setData(image, scale, data, width, height):
             keyTypeUsed = True
         elif keyType == 1:
             color = lookupTableCharacters2[key][0]
+            keyTypeUsed = True
+        elif keyType == 2:
+            color = lookupTableOperators1[key][0]
             keyTypeUsed = True
 
         if keyType == None:
